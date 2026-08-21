@@ -45,15 +45,12 @@ a:hover { text-decoration: underline; }
 }
 .brand:hover { text-decoration: none; }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
+.brand-logo {
   width: 34px;
   height: 34px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent), #ff7a00);
-  color: #1a1300;
-  font-weight: 800;
+  object-fit: cover;
+  display: block;
 }
 
 .brand-name { letter-spacing: 0.5px; }
