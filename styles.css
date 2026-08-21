@@ -152,6 +152,62 @@ a:hover { text-decoration: underline; }
 }
 .cta:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255, 176, 0, 0.35); }
 
+.hero-banner {
+  margin-top: 36px;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.content { padding: 60px 0; max-width: 760px; }
+.content h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  margin: 0 0 16px;
+}
+.content .lead { font-size: 18px; color: var(--muted); margin: 0 0 32px; }
+
+.info-card {
+  background: var(--bg-soft);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+}
+.info-card h2 { margin-top: 0; }
+.info-card p { color: var(--muted); margin: 0 0 16px; }
+
+.primary-link {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent-2), #6f9bff);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.primary-link:hover { text-decoration: none; filter: brightness(1.1); }
+
+.download-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.download-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bg-soft);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.dl-name { font-weight: 600; }
+
 .chat-band { padding: 20px 0 60px; }
 .chat-card {
   display: flex;
