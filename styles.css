@@ -46,10 +46,9 @@ a:hover { text-decoration: underline; }
 .brand:hover { text-decoration: none; }
 
 .brand-logo {
-  width: 600px;
-  height: 600px;
-  max-width: 90vw;
-  border-radius: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
   object-fit: cover;
   display: block;
 }
