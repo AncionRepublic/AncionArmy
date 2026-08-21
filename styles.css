@@ -140,6 +140,7 @@ a:hover { text-decoration: underline; }
   margin: 0 0 8px;
 }
 .sublead { color: var(--muted); margin: 0 0 32px; }
+.sublead { font-size: 14px; }
 
 .cta {
   display: inline-block;
