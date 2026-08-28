@@ -65,19 +65,19 @@ export default {
         );
       }
 
-      // Верификация пройдена — отправляем письмо через Formsubmit (без прав Google)
+      // Верификация пройдена — отправляем письмо.
+      // EMAIL_APP_URL (secret) -> надёжный Google Apps Script; иначе Formsubmit.
       const party = form.get('party') || '(не выбрано)';
       const tg = form.get('tg_username') ? '@' + form.get('tg_username') : 'id ' + form.get('tg_id');
       const payload = new URLSearchParams();
-      payload.set('_subject', 'Новый голос — Выборы Анцион 2026');
       payload.set('party', party);
       payload.set('telegram', tg);
       payload.set('telegram_id', form.get('tg_id') || '');
-      payload.set('_captcha', 'false');
 
+      const EMAIL_URL = env.EMAIL_APP_URL || 'https://formsubmit.co/ancion.republic.official@gmail.com';
       let emailNote = '';
       try {
-        const res = await fetch('https://formsubmit.co/ancion.republic.official@gmail.com', {
+        const res = await fetch(EMAIL_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: payload.toString()
