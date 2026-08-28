@@ -21,6 +21,33 @@ if (toggle && menu) {
   });
 }
 
+// Mobile side-drawer navigation
+const burger = document.getElementById('nav-burger');
+const navEl = document.querySelector('.nav');
+const overlay = document.getElementById('nav-overlay');
+
+function openNav() {
+  if (!navEl) return;
+  navEl.classList.add('open');
+  overlay.classList.add('open');
+  burger.setAttribute('aria-expanded', 'true');
+}
+function closeNav() {
+  if (!navEl) return;
+  navEl.classList.remove('open');
+  overlay.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+}
+
+if (burger && navEl) {
+  burger.addEventListener('click', () => {
+    if (navEl.classList.contains('open')) closeNav();
+    else openNav();
+  });
+  if (overlay) overlay.addEventListener('click', closeNav);
+  navEl.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
+}
+
 // Elections: Telegram Login widget callback
 function onTelegramAuth(user) {
   const status = document.getElementById('tg-status');
