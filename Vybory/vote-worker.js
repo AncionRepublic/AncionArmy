@@ -75,15 +75,21 @@ export default {
       payload.set('telegram_id', form.get('tg_id') || '');
       payload.set('_captcha', 'false');
 
-      await fetch('https://formsubmit.co/ancion.republic.official@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: payload.toString()
-      });
+      let emailNote = '';
+      try {
+        const res = await fetch('https://formsubmit.co/ancion.republic.official@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload.toString()
+        });
+        if (!res.ok) emailNote = ' (внимание: письмо не отправлено, код ' + res.status + ')';
+      } catch (e) {
+        emailNote = ' (внимание: ошибка отправки письма)';
+      }
 
       return new Response(
         '<h2>Спасибо! Ваш голос учтён.</h2>' +
-        '<p>Мы получили ваш выбор: <strong>' + party + '</strong>.</p>' +
+        '<p>Мы получили ваш выбор: <strong>' + party + '</strong>.' + emailNote + '</p>' +
         '<p><a href="https://ancioNrepublic.github.io/AncionArmy/vybory.html">Вернуться к списку кандидатов</a></p>',
         { headers: { 'content-type': 'text/html; charset=utf-8' } }
       );
