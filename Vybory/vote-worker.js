@@ -1,4 +1,4 @@
-/*
+﻿/*
  * vote-worker.js
  * -------------
  * Cloudflare Worker — серверная верификация Telegram + отправка голоса на почту.
@@ -57,7 +57,7 @@ export default {
     if (calcHash !== form.get('tg_hash')) {
       return new Response(
         '<h2>Ошибка верификации Telegram</h2><p>Голос не принят. Войдите через Telegram ещё раз.</p>' +
-        '<p><a href="https://anciorepublic.github.io/AncionArmy/vybory.html">Вернуться</a></p>',
+        '<p><a href="https://ancioNrepublic.github.io/AncionArmy/vybory.html">Вернуться</a></p>',
         { status: 403, headers: { 'content-type': 'text/html; charset=utf-8' } }
       );
     }
@@ -81,7 +81,7 @@ export default {
     return new Response(
       '<h2>Спасибо! Ваш голос учтён.</h2>' +
       '<p>Мы получили ваш выбор: <strong>' + party + '</strong>.</p>' +
-      '<p><a href="https://anciorepublic.github.io/AncionArmy/vybory.html">Вернуться к списку кандидатов</a></p>',
+      '<p><a href="https://ancioNrepublic.github.io/AncionArmy/vybory.html">Вернуться к списку кандидатов</a></p>',
       { headers: { 'content-type': 'text/html; charset=utf-8' } }
     );
   }
