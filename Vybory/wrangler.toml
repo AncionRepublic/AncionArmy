@@ -1,0 +1,5 @@
+name = "ancion-vote"
+main = "Vybory/vote-worker.js"
+compatibility_date = "2024-09-23"
+
+# Секрет задаётся через: wrangler secret put TELEGRAM_BOT_TOKEN
