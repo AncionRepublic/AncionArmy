@@ -14,6 +14,30 @@
  * tg_photo_url, tg_auth_date, tg_hash, party.
  */
 
+async function deliverEmail(url, body, attempts = 5) {
+  let lastStatus = null;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
+      });
+      if (res.ok) return null;
+      lastStatus = res.status;
+      if (res.status === 429) {
+        await new Promise((r) => setTimeout(r, 400 * (i + 1)));
+        continue;
+      }
+      return 'код ' + res.status;
+    } catch (e) {
+      lastStatus = 'сбой сети';
+      await new Promise((r) => setTimeout(r, 400 * (i + 1)));
+    }
+  }
+  return lastStatus ? 'код ' + lastStatus : 'неизвестно';
+}
+
 export default {
   async fetch(request, env) {
     try {
@@ -76,16 +100,8 @@ export default {
 
       const EMAIL_URL = env.EMAIL_APP_URL || 'https://formsubmit.co/ancion.republic.official@gmail.com';
       let emailNote = '';
-      try {
-        const res = await fetch(EMAIL_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: payload.toString()
-        });
-        if (!res.ok) emailNote = ' (внимание: письмо не отправлено, код ' + res.status + ')';
-      } catch (e) {
-        emailNote = ' (внимание: ошибка отправки письма)';
-      }
+      const emailErr = await deliverEmail(EMAIL_URL, payload.toString());
+      if (emailErr) emailNote = ' (внимание: письмо не отправлено, ' + emailErr + ')';
 
       return new Response(
         '<h2>Спасибо! Ваш голос учтён.</h2>' +
