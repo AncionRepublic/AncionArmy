@@ -445,8 +445,34 @@ a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 720px) {
-  .nav { gap: 10px; }
-  .nav > a { display: none; }
-  .site-header { padding: 0 16px; }
+  .site-header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 16px;
+    gap: 6px 12px;
+  }
+  .brand { flex: 1 1 auto; }
+  .nav {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    justify-content: flex-start;
+  }
+  .nav > a { display: inline; font-size: 13px; }
+  .nav-group { position: static; }
+  .nav-toggle { display: none; }
+  .dropdown {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin-top: 2px;
+  }
+  .dropdown[hidden] { display: flex; }
+  .dropdown a { padding: 4px 0; }
   .page { padding: 0 16px; }
 }
