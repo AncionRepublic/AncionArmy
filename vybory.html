@@ -104,6 +104,37 @@
         </div>
       </article>
 
+      <section class="vote-section" id="vote">
+        <h2>Голосование</h2>
+        <p class="lead">Подтвердите личность через Telegram и выберите партию.</p>
+
+        <div class="tg-login">
+          <script async src="https://telegram.org/js/telegram-widget.js?22"
+            data-telegram-login="AncionBot"
+            data-size="large"
+            data-userpic="false"
+            data-radius="12"
+            data-onauth="onTelegramAuth(user)"></script>
+          <p class="tg-hint" id="tg-status">Войдите через Telegram, чтобы подтвердить личность.</p>
+        </div>
+
+        <form class="vote-form" id="vote-form"
+          action="https://formsubmit.co/ancion.republic.official@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Новый голос — Выборы Республики Анцион 2026">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="telegram_user" id="telegram_user">
+
+          <fieldset class="party-choices">
+            <legend>Выберите партию</legend>
+            <label class="party-option"><input type="radio" name="party" value="Анcion" required> Анcion</label>
+            <label class="party-option"><input type="radio" name="party" value="ОПРА"> ОПРА</label>
+            <label class="party-option"><input type="radio" name="party" value="Партия регби"> Партия регби</label>
+          </fieldset>
+
+          <button type="submit" class="cta" id="vote-submit" disabled>Отправить голос</button>
+        </form>
+      </section>
+
       <div class="election-cta">
         <a class="cta" href="https://t.me/+lCoWDAy3qLc3NzRi">Обсудить выборы в чате</a>
       </div>

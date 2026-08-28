@@ -20,3 +20,19 @@ if (toggle && menu) {
     }
   });
 }
+
+// Elections: Telegram Login widget callback
+function onTelegramAuth(user) {
+  const field = document.getElementById('telegram_user');
+  const status = document.getElementById('tg-status');
+  const submit = document.getElementById('vote-submit');
+  if (!field || !user) return;
+  field.value = user.username
+    ? '@' + user.username + ' (id ' + user.id + ')'
+    : 'id ' + user.id;
+  if (status) {
+    status.textContent = 'Подтверждено через Telegram: ' + (user.first_name || user.username || user.id);
+    status.style.color = 'var(--accent)';
+  }
+  if (submit) submit.disabled = false;
+}
