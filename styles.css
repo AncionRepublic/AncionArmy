@@ -328,7 +328,7 @@ a:hover { text-decoration: underline; }
 
 .candidate-card {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 420px 1fr;
   gap: 28px;
   align-items: start;
   background: var(--bg-soft);
@@ -433,7 +433,7 @@ a:hover { text-decoration: underline; }
 
 @media (max-width: 720px) {
   .candidate-card { grid-template-columns: 1fr; }
-  .candidate-photo { max-width: 280px; }
+  .candidate-photo { max-width: 360px; }
 }
 
 .site-footer {
