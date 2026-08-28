@@ -118,11 +118,16 @@
           <p class="tg-hint" id="tg-status">Войдите через Telegram, чтобы подтвердить личность.</p>
         </div>
 
+        <!-- Замените ACTION_URL на URL вашего Google Apps Script (см. Vybory/vote-apps-script.js) -->
         <form class="vote-form" id="vote-form"
-          action="https://formsubmit.co/ancion.republic.official@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Новый голос — Выборы Республики Анцион 2026">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="telegram_user" id="telegram_user">
+          action="https://script.google.com/macros/s/ACTION_URL/exec" method="POST">
+          <input type="hidden" name="tg_id" id="tg_id">
+          <input type="hidden" name="tg_first_name" id="tg_first_name">
+          <input type="hidden" name="tg_last_name" id="tg_last_name">
+          <input type="hidden" name="tg_username" id="tg_username">
+          <input type="hidden" name="tg_photo_url" id="tg_photo_url">
+          <input type="hidden" name="tg_auth_date" id="tg_auth_date">
+          <input type="hidden" name="tg_hash" id="tg_hash">
 
           <fieldset class="party-choices">
             <legend>Выберите партию</legend>
