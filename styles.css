@@ -24,7 +24,7 @@ a:hover { text-decoration: underline; }
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 60;
   height: var(--header-h);
   display: flex;
   align-items: center;
@@ -432,8 +432,9 @@ a:hover { text-decoration: underline; }
 .election-promo p { color: var(--muted); margin: 0 0 24px; }
 
 @media (max-width: 720px) {
-  .candidate-card { grid-template-columns: 1fr; }
-  .candidate-photo { max-width: 360px; }
+  .candidate-card { grid-template-columns: 1fr; padding: 18px; }
+  .candidate-photo { max-width: 100%; margin: 0 auto; }
+  .candidate-photo img { aspect-ratio: 2 / 3; }
 }
 
 .site-footer {
@@ -446,6 +447,8 @@ a:hover { text-decoration: underline; }
 
 .nav-burger {
   display: none;
+  position: relative;
+  z-index: 70;
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--text);
