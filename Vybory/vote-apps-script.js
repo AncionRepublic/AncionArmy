@@ -24,7 +24,7 @@
 
 function doPost(e) {
   var p = e.parameter;
-  var BOT_TOKEN = PropertiesService.getScriptProperties().getProperty('BOT_TOKEN');
+  var BOT_TOKEN = PropertiesService.getScriptProperties().getProperty('8881312089:AAG3928rzXr8SBMl4H95F1UrpXIjMD25y7k');
 
   if (!BOT_TOKEN) {
     return HtmlService.createHtmlOutput('Ошибка сервера: не задан BOT_TOKEN.');
