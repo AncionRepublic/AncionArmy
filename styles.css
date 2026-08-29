@@ -343,7 +343,7 @@ a:hover { text-decoration: underline; }
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: block;
   object-fit: cover;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
 }
 .candidate-body h2 {
   margin: 0 0 4px;
