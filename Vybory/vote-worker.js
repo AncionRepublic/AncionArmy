@@ -7,8 +7,10 @@
  * Развёртывание:
  * 1. https://dash.cloudflare.com -> Workers & Pages -> Create -> Worker.
  * 2. В Secrets добавь: TELEGRAM_BOT_TOKEN = <токен бота от @BotFather>.
- * 3. Вставь код ниже, Deploy. Получишь URL вида https://vote-xxx.workers.dev
- * 4. В vybory.html замени ACTION_URL на этот URL (в action формы).
+ * 3. Создай KV: Workers & Pages -> KV -> Create namespace (напр. "votes"),
+ *    в Settings Worker -> Bindings добавь KV namespace с именем VOTES.
+ * 4. Вставь код ниже, Deploy. Получишь URL вида https://vote-xxx.workers.dev
+ * 5. В vybory.html замени ACTION_URL на этот URL (в action формы).
  *
  * Форма шлёт поля: tg_id, tg_first_name, tg_last_name, tg_username,
  * tg_photo_url, tg_auth_date, tg_hash, party.
@@ -87,6 +89,23 @@ export default {
           '<p><a href="https://ancioNrepublic.github.io/AncionArmy/vybory.html">Вернуться</a></p>',
           { status: 403, headers: { 'content-type': 'text/html; charset=utf-8' } }
         );
+      }
+
+      // --- Защита от повторного голосования: 1 голос на 1 Telegram-id ---
+      const tgId = form.get('tg_id');
+      if (!tgId) {
+        return new Response('Не удалось определить пользователя Telegram.', { status: 400 });
+      }
+      if (env.VOTES) {
+        const already = await env.VOTES.get(tgId);
+        if (already) {
+          return new Response(
+            '<h2>Вы уже голосовали</h2><p>Один аккаунт Telegram может отдать голос только один раз.</p>' +
+            '<p><a href="https://ancioNrepublic.github.io/AncionArmy/vybory.html">Вернуться</a></p>',
+            { status: 409, headers: { 'content-type': 'text/html; charset=utf-8' } }
+          );
+        }
+        await env.VOTES.put(tgId, new Date().toISOString());
       }
 
       // Верификация пройдена — отправляем письмо.

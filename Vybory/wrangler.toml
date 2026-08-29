@@ -2,4 +2,11 @@ name = "ancion-vote"
 main = "Vybory/vote-worker.js"
 compatibility_date = "2024-09-23"
 
+# KV для защиты от повторного голосования (1 голос на 1 Telegram-id).
+# Создать: wrangler kv namespace create votes
+# Затем вписать полученный id в поле id ниже.
+[[kv_namespaces]]
+binding = "VOTES"
+id = "ЗАМЕНИ_НА_ID_ИЗ_KV_NAMESPACE_CREATE"
+
 # Секрет задаётся через: wrangler secret put TELEGRAM_BOT_TOKEN
