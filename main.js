@@ -73,32 +73,6 @@ function onTelegramAuth(user) {
   if (submit) submit.disabled = false;
 }
 
-// Randomize party order (candidate cards + vote options) on each page load
-(function randomizeParties() {
-  const content = document.querySelector('.content');
-  const voteSection = document.getElementById('vote');
-  const fieldset = document.querySelector('.party-choices');
-  const cards = Array.from(document.querySelectorAll('.candidate-card'));
-  const opts = fieldset ? Array.from(fieldset.querySelectorAll('.party-option')) : [];
-  if (!content || !voteSection || cards.length < 2) return;
-
-  const perm = cards.map((_, i) => i);
-  for (let i = perm.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [perm[i], perm[j]] = [perm[j], perm[i]];
-  }
-
-  const frag = document.createDocumentFragment();
-  perm.forEach((i) => frag.appendChild(cards[i]));
-  content.insertBefore(frag, voteSection);
-
-  if (fieldset) {
-    const frag2 = document.createDocumentFragment();
-    perm.forEach((i) => frag2.appendChild(opts[i]));
-    fieldset.appendChild(frag2);
-  }
-})();
-
 // Client-side hint: disable form if this browser already voted (real guard is server-side)
 (function voteGuard() {
   const form = document.getElementById('vote-form');
