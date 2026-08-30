@@ -28,109 +28,84 @@
       <h1>Результаты выборов</h1>
       <p class="lead">Итоги голосования за президента Великой Республики Анцион.</p>
 
-      <div class="chart-section">
-        <div class="donut-wrap">
-          <svg class="donut" viewBox="0 0 200 200">
-            <g transform="rotate(-90 100 100)">
-              <!-- Анцион: 4/8 = 50% -->
-              <circle cx="100" cy="100" r="80" fill="none"
-                stroke="#ffb000" stroke-width="36"
-                stroke-dasharray="251.33 251.33"
-                stroke-dashoffset="0"/>
-              <!-- Супер-Анцион: 2/8 = 25% -->
-              <circle cx="100" cy="100" r="80" fill="none"
-                stroke="#4f7cff" stroke-width="36"
-                stroke-dasharray="125.66 377.0"
-                stroke-dashoffset="-251.33"/>
-              <!-- ОПРА: 2/8 = 25% -->
-              <circle cx="100" cy="100" r="80" fill="none"
-                stroke="#ff6b6b" stroke-width="36"
-                stroke-dasharray="125.66 377.0"
-                stroke-dashoffset="-377.0"/>
-            </g>
-            <text x="100" y="94" text-anchor="middle" fill="#eef2ff" font-size="36" font-weight="800" font-family="Segoe UI, sans-serif">8</text>
-            <text x="100" y="118" text-anchor="middle" fill="#aab3d6" font-size="14" font-family="Segoe UI, sans-serif">голосов</text>
-          </svg>
-        </div>
+      <div class="results-grid">
 
-        <div class="legend">
-          <div class="legend-item">
-            <span class="legend-dot" style="background:#ffb000"></span>
-            <span class="legend-name">Ancion</span>
-            <span class="legend-count">4</span>
-            <span class="legend-pct">50%</span>
+        <div class="result-card">
+          <div class="result-rank">1</div>
+          <div class="result-photo">
+            <img src="Vybory/Ancion.jpg" alt="Анцион">
           </div>
-          <div class="legend-item">
-            <span class="legend-dot" style="background:#4f7cff"></span>
-            <span class="legend-name">Супер-Анцион</span>
-            <span class="legend-count">2</span>
-            <span class="legend-pct">25%</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot" style="background:#ff6b6b"></span>
-            <span class="legend-name">ОПРА</span>
-            <span class="legend-count">2</span>
-            <span class="legend-pct">25%</span>
-          </div>
-          <div class="legend-item">
-            <span class="legend-dot" style="background:#555"></span>
-            <span class="legend-name">Партия регби</span>
-            <span class="legend-count">0</span>
-            <span class="legend-pct">0%</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="winner-block">
-        <p class="winner-label">Победитель</p>
-        <div class="winner-card">
-          <img src="Vybory/Ancion.jpg" alt="Ancion" class="winner-photo">
-          <div class="winner-info">
+          <div class="result-body">
             <h2>Ancion</h2>
-            <p>Егор — верный администратор Республики</p>
-            <p class="winner-votes">4 голоса из 8</p>
+            <p class="result-tag">Егор — верный администратор Республики</p>
+            <div class="result-votes">
+              <span class="result-count">4</span>
+              <span class="result-label">голоса</span>
+            </div>
+            <div class="result-bar">
+              <div class="result-bar-fill" style="width: 50%;"></div>
+            </div>
           </div>
         </div>
+
+        <div class="result-card">
+          <div class="result-rank">2</div>
+          <div class="result-photo">
+            <img src="Vybory/super-ancion.jpg" alt="Супер-Анцион">
+          </div>
+          <div class="result-body">
+            <h2>Супер-Анцион</h2>
+            <p class="result-tag">Свобода, Процветание, Управляемая Демократия</p>
+            <div class="result-votes">
+              <span class="result-count">2</span>
+              <span class="result-label">голоса</span>
+            </div>
+            <div class="result-bar">
+              <div class="result-bar-fill" style="width: 25%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-rank">2</div>
+          <div class="result-photo">
+            <img src="Vybory/OPRA.jpg" alt="ОПРА">
+          </div>
+          <div class="result-body">
+            <h2>ОПРА</h2>
+            <p class="result-tag">Коля в президенты</p>
+            <div class="result-votes">
+              <span class="result-count">2</span>
+              <span class="result-label">голоса</span>
+            </div>
+            <div class="result-bar">
+              <div class="result-bar-fill" style="width: 25%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-rank">4</div>
+          <div class="result-photo">
+            <img src="Vybory/Rigby.PNG" alt="Партия регби">
+          </div>
+          <div class="result-body">
+            <h2>Партия регби</h2>
+            <p class="result-tag">Стабильность превыше всего</p>
+            <div class="result-votes">
+              <span class="result-count">0</span>
+              <span class="result-label">голосов</span>
+            </div>
+            <div class="result-bar">
+              <div class="result-bar-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="results-cards">
-        <h3>Все кандидаты</h3>
-
-        <div class="result-row">
-          <img src="Vybory/Ancion.jpg" alt="Ancion" class="result-mini">
-          <div class="result-info">
-            <strong>Ancion</strong>
-            <span class="result-bar"><span class="result-bar-fill" style="width:50%; background:#ffb000"></span></span>
-          </div>
-          <span class="result-num">4</span>
-        </div>
-
-        <div class="result-row">
-          <img src="Vybory/super-ancion.jpg" alt="Супер-Анцион" class="result-mini">
-          <div class="result-info">
-            <strong>Супер-Анцион</strong>
-            <span class="result-bar"><span class="result-bar-fill" style="width:25%; background:#4f7cff"></span></span>
-          </div>
-          <span class="result-num">2</span>
-        </div>
-
-        <div class="result-row">
-          <img src="Vybory/OPRA.jpg" alt="ОПРА" class="result-mini">
-          <div class="result-info">
-            <strong>ОПРА</strong>
-            <span class="result-bar"><span class="result-bar-fill" style="width:25%; background:#ff6b6b"></span></span>
-          </div>
-          <span class="result-num">2</span>
-        </div>
-
-        <div class="result-row">
-          <img src="Vybory/Rigby.PNG" alt="Партия регби" class="result-mini">
-          <div class="result-info">
-            <strong>Партия регби</strong>
-            <span class="result-bar"><span class="result-bar-fill" style="width:0%; background:#555"></span></span>
-          </div>
-          <span class="result-num">0</span>
-        </div>
+      <div class="results-total">
+        <p>Всего голосов: <strong>8</strong></p>
       </div>
 
       <div class="election-cta">
